@@ -78,18 +78,18 @@ def top10(word_value):
 def main():  # в конце
     '''базовая функция'''
     while True:
-        name = input('Введите имя файла: newafr.json, newsafr.xml, для выхода введите: exit : ')
-        if name == 'newsafr.json':
+        comand_name = input('Введите команду: j - newsafr.json, x - newsafr.xml, для выхода введите: exit : ')
+        if comand_name == 'j':
             print('Идет обработка файла ...')
-            top_10 = top10(word_count(read_json_files(name)))
+            top_10 = top10(word_count(read_json_files('newsafr.json')))
             for k in top_10.values():
                 print(k[0], ': ', k[1])
-        elif name == 'newsafr.xml':
+        elif comand_name == 'x':
             print('Идет обработка файла ...')
-            top_10 = top10(word_count(read_xml_files(name)))
+            top_10 = top10(word_count(read_xml_files('newsafr.xml')))
             for k in top_10.values():
                 print(k[0], ': ', k[1])
-        elif name == 'exit':
+        elif comand_name == 'exit':
             break
         else:
             print('Некорректный ввод, повторите.')
