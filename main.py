@@ -20,7 +20,7 @@ def read_json_files(name):
         data = json.loads(data)
         original_text = ''
         for items in data['rss']['channel']['items']:
-            original_text += ' ' + items['description']
+            original_text += ' ' + items['description'].lower()
         return original_text
 
 
@@ -33,7 +33,7 @@ def read_xml_files(name):
     items = root.findall('channel/item')
     original_text = ''
     for item in items:
-        original_text += ' ' + item.find('description').text
+        original_text += ' ' + item.find('description').text.lower()
     return original_text
 
 
